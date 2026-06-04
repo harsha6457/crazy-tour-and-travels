@@ -396,3 +396,23 @@ Free cancellation up to 24 hours and amount will be refunded.
 </div>
 
 </div>
+  <script>
+function showPage(pageId){
+
+let pages = document.querySelectorAll('.page');
+
+pages.forEach(function(page){
+page.classList.remove('active');
+});
+
+document.getElementById(pageId).classList.add('active');
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+}
+</script>
+  </body>
+</html>

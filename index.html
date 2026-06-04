@@ -3,112 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Car Showroom</title>
+<title>Car World</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
 body {
+  margin: 0;
+  font-family: Arial;
   background: #0f0f0f;
   color: white;
+  overflow-x: hidden;
 }
 
-/* HEADER */
 header {
-  background: #111;
-  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  padding: 15px;
+  background: #111;
 }
 
 .logo {
-  font-size: 24px;
+  color: gold;
+  font-size: 20px;
   font-weight: bold;
-  color: #ffcc00;
 }
 
 nav a {
   color: white;
-  margin: 10px;
+  margin: 8px;
   text-decoration: none;
-  font-size: 16px;
 }
 
-nav a:hover {
-  color: #ffcc00;
-}
-
-/* HERO */
 .hero {
   text-align: center;
-  padding: 40px 20px;
+  padding: 30px 10px;
 }
 
 .hero h1 {
-  font-size: 40px;
-  color: #ffcc00;
-  letter-spacing: 2px;
+  color: gold;
+  font-size: 26px;
 }
 
-.hero p {
-  margin-top: 10px;
-  color: #ccc;
+/* TRACK */
+.track {
+  position: relative;
+  height: 250px;
+  background: linear-gradient(#111, #1a1a1a);
+  overflow: hidden;
 }
 
-/* IMAGE */
-.car-img {
-  width: 100%;
-  max-width: 900px;
-  display: block;
-  margin: 30px auto;
-  border-radius: 10px;
+/* CAR */
+.car {
+  position: absolute;
+  bottom: 40px;
+  width: 180px;
+  animation: move 4s linear infinite;
 }
 
-/* ABOUT */
+/* ANIMATION */
+@keyframes move {
+  0% { left: -200px; transform: rotate(0deg); }
+  50% { transform: rotate(-5deg); }
+  100% { left: 110%; transform: rotate(0deg); }
+}
+
+/* SMOKE */
+.smoke {
+  position: absolute;
+  bottom: 30px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  animation: smoke 2s infinite;
+}
+
+.smoke:nth-child(2){ left: 60px; animation-delay: .3s; }
+.smoke:nth-child(3){ left: 90px; animation-delay: .6s; }
+
+@keyframes smoke {
+  0% { transform: translateY(0) scale(1); opacity: 0.5; }
+  100% { transform: translateY(-60px) scale(2); opacity: 0; }
+}
+
 .about {
-  padding: 40px 20px;
+  padding: 20px;
   background: #1a1a1a;
 }
-
-.about h2 {
-  color: #ffcc00;
-  margin-bottom: 10px;
-}
-
-.about p {
-  color: #ccc;
-  line-height: 1.6;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #111;
-  color: #777;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  nav {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-  }
-}
 </style>
-
 </head>
 
 <body>
@@ -118,31 +99,27 @@ footer {
   <nav>
     <a href="#">Home</a>
     <a href="#about">About</a>
-    <a href="#">Menu</a>
-    <a href="#">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
+<div class="hero">
   <h1>THE FUTURE OF DRIVING</h1>
-  <p>Experience speed, luxury and performance</p>
-</section>
+</div>
 
-<!-- Replace "car.jpg" with your image file -->
-<img src="car.jpg" alt="Car Image" class="car-img">
+<div class="track">
 
-<section id="about" class="about">
+  <img class="car" src="https://i.imgur.com/3ZQ3ZQm.png">
+
+  <div class="smoke"></div>
+  <div class="smoke" style="left:60px;"></div>
+  <div class="smoke" style="left:90px;"></div>
+
+</div>
+
+<div id="about" class="about">
   <h2>About Us</h2>
-  <p>
-    Welcome to Car World. We bring you the latest and most powerful cars with advanced technology,
-    stylish design and top performance. Our mission is to deliver quality vehicles that match your lifestyle.
-    Explore our collection and find your dream car today.
-  </p>
-</section>
-
-<footer>
-  © 2026 Car World. All Rights Reserved.
-</footer>
+  <p>High performance cars with luxury design and speed experience.</p>
+</div>
 
 </body>
 </html>
